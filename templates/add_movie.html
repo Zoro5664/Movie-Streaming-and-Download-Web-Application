@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .flayout{
+            margin:100px;
+            margin-left:250px;
+            margin-right:250px;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            margin-right:250px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <a class="navbar-brand" style="color:red" href="/">Streamflex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Top Categories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#bollywood-section">Bollywood</a>
+                  <a class="dropdown-item" href="#hollywood-section">Hollywood</a>
+                  <a class="dropdown-item" href="#dubbed-section">Dubbed</a>
+                  <a class="dropdown-item" href="#Others-section">Others</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.php">Contact</a>
+              </li>
+          </ul>
+          
+          <div class="row mx-2">
+
+
+          
+          <ul class="navbar-nav ml-auto" left:"0px";>
+          <li class="nav-item dropdown" >
+            <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" margin-left="3px">
+              Welcome <b>{{request.user}}</b>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right:20px">
+              <a class="dropdown-item" href="#">profile</a>
+              
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="logout">Logout</a>
+            </div>
+          </li>
+        </ul>   
+    </div>
+      </div>
+  </nav>
+
+    <div class="flayout">
+    <form onsubmit=popup() method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Movie name</label>
+          <input type="text" name="mname" class="form-control" id="exampleInputPassword1" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Description</label>
+          <input type="text" name="desc" class="form-control" id="exampleInputPassword1" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Trailer link</label>
+            <input type="text" name="tlink" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">movie </label>
+            <input type="file" name="mlink" class="form-control" id="exampleInputPassword1" required>
+          </div>
+          <div class="mb-3">
+          <label for="cat">Choose Category:</label>
+            <select name="cat" id="cat">
+              <option value="Bollywood">Bollywood</option>
+              <option value="Hollywood">Hollywood</option>
+              <option value="Dubbed">Dubbed</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          
+          
+          
+          
+          {% comment %} <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">category</label>
+            <input type="text" name="cat" class="form-control" id="exampleInputPassword1" required>
+          </div> {% endcomment %}
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">image</label>
+            <input type="file" name="img" class="form-control" id="exampleInputPassword1" required>
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <script>function popup(){
+          Swal.fire({
+            icon: 'success',
+            title: 'success',
+            text: 'movie uploaded',
+          })
+
+          }
+        </script>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
