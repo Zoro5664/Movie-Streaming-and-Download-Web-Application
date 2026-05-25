@@ -4,7 +4,7 @@ StreamFlex is a web application that allows users to watch and download movies a
 ## Installation
 1.Clone the repository: 
 ```bash
-git clone https://github.com/arjun0084/movie
+git clone https://github.com/Zoro5664/Movie-Streaming-and-Download-Web-Application.git
 ```
 2.Install the required dependencies: 
 ```bash
@@ -48,12 +48,4 @@ If you'd like to contribute to StreamFlex, please fork the repository and create
 ## Credits
 StreamFlex was created by the following developers:
 
-[Sumit Pawar](https://github.com/sp0759)
-
-[Kshitij Lavhe](https://github.com/arjun0084)
-
-[Jayesh Pawar](https://github.com/jayesh12p)
-
-[Sourav Jagtap](https://github.com/resist15)
-
-
+[Abhijit Vandargunde]
